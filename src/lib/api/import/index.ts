@@ -144,13 +144,13 @@ export async function importTargets(
         );
 
         if (failed % concurrentImports === 0) {
-          if (failedMoreThanOnce) {
-            console.error(
-              `Every import in the last few batches failed, stopping as this is unexpected! Please check if everything is configured ok and review the logs located at ${loggingPath}/*. If everything looks OK re-start the import, previously imported targets will be skipped.`,
-            );
-            // die immediately
-            process.exit(1);
-          }
+          //if (failedMoreThanOnce) {
+          //  console.error(
+          //    `Every import in the last few batches failed, stopping as this is unexpected! Please check if everything is configured ok and review the logs located at ${loggingPath}/*. If everything looks OK re-start the import, previously imported targets will be skipped.`,
+          //  );
+          //  // die immediately
+          //  process.exit(1);
+          //}
           failedMoreThanOnce = true;
         }
       }
