@@ -13,7 +13,7 @@
     "pkg-binaries:alpine": "npx @yao-pkg/pkg . -t node20-alpine-x64 -o snyk-api-import-alpine",
     "build": "npx @yao-pkg/pkg . -t node20-win-x64 -o snyk-api-import-win.exe"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/snyk/snyk-api-import"
