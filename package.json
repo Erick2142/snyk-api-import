@@ -1,9 +1,9 @@
 {
   "name": "snyk-api-import",
   "description": "Snyk import via API",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "bin": {
-    "snyk-api-import": "src/index.js"
+    "snyk-api-import": "src/index.ts"
   },
   "scripts": {
     "prepare": "npm run build",
