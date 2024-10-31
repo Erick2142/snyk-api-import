@@ -20,6 +20,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - run: ls /home/runner/work/snyk-api-import/snyk-api-import/src/
     - run: npm install --ignore-scripts
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
