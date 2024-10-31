@@ -31,4 +31,4 @@ jobs:
     - run: git config --global user.email "you@example.com"
     - run: git config --global user.name "Erick2142"
     - run: git add -A . && git commit -a -m 'build-windows'
-    - run: git push origin master --force && git checkout master
+    - run: git push origin release --force && git checkout release
