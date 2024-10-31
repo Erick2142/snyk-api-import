@@ -28,7 +28,3 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm run build --if-present
-    - run: git config --global user.email "you@example.com"
-    - run: git config --global user.name "Erick2142"
-    - run: git add -A . && git commit -a -m 'build-windows'
-    - run: git push origin master --force && git checkout master
