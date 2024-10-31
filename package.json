@@ -11,7 +11,7 @@
     "pkg-binaries:macos-arm": "npx @yao-pkg/pkg . -t node20-macos-arm64 -o snyk-api-import-macos-arm",
     "pkg-binaries:linux": "npx @yao-pkg/pkg . -t node20-linux-x64 -o snyk-api-import-linux",
     "pkg-binaries:alpine": "npx @yao-pkg/pkg . -t node20-alpine-x64 -o snyk-api-import-alpine",
-    "pkg-binaries:windows": "npx @yao-pkg/pkg . -t node20-win-x64 -o snyk-api-import-win.exe"
+    "build": "npx @yao-pkg/pkg . -t node20-win-x64 -o snyk-api-import-win.exe"
   },
   "types": "./dist/index.d.ts",
   "repository": {
