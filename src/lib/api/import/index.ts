@@ -108,6 +108,7 @@ export async function importTarget(
 }
 
 let failedMoreThanOnce = false;
+let ignoreMultipleFails = false;
 export async function importTargets(
   requestManager: requestsManager,
   targets: ImportTarget[],
@@ -143,14 +144,24 @@ export async function importTargets(
           loggingPath,
         );
 
-        if (failed % concurrentImports === 0) {
-          //if (failedMoreThanOnce) {
-          //  console.error(
-          //    `Every import in the last few batches failed, stopping as this is unexpected! Please check if everything is configured ok and review the logs located at ${loggingPath}/*. If everything looks OK re-start the import, previously imported targets will be skipped.`,
-          //  );
-          //  // die immediately
-          //  process.exit(1);
-          //}
+        if (!ignoreMultipleFails && failed % concurrentImports === 0) {
+          if (failedMoreThanOnce) {
+            console.error(
+              `Every import in the last few batches failed, stopping as this is unexpected! Please check if everything is configured ok and review the logs located at ${loggingPath}/*.`,
+            );
+            var rl = readline.createInterface({
+                input: process.stdin,
+                output: process.stdout
+            });
+
+            rl.question("Do you want to continue anyway? (Y / N)", function(answer) {
+              answer = answer.toUpperCase();
+              if(!(answer === "Y")){
+                process.exit(1);
+              }
+            });
+            ignoreMultipleFails = true;
+          }
           failedMoreThanOnce = true;
         }
       }
